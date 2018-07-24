@@ -1,13 +1,13 @@
 [
 {
-  "modid": "TerrariaChestTweaks",
+  "modid": "terrariachesttweaks",
   "name": "Terraria-Chest Tweaks",
   "description": "A mod that like the Terraria can tweaks the chest.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Jachin"],
+  "authorList": ["JachinYin"],
   "credits": "Jachin's personal Mod",
   "logoFile": "assets/terrariachesttweaks/textures/logo.png",
   "screenshots": [],

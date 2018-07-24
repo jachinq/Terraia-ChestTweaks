@@ -1,6 +1,7 @@
 package com.jachin.terrariachesttweaks.handler;
 
 import com.google.common.collect.Lists;
+import com.jachin.terrariachesttweaks.common.ConfigLoader;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -33,13 +34,23 @@ public class StackHandler {
         World world = player.world;
         BlockPos pos = player.getPosition();
         InventoryPlayer playerInv = player.inventory;
-        List<TileEntity> blocks = nearbyInteractiveObjects(world, pos, 5);
+        List<TileEntity> blocks = nearbyInteractiveObjects(world, pos, getDistance());
         for (TileEntity te : blocks) {
             if (te != null)
                 placeItem(playerInv,te);
         }
+    }
 
+    private int getDistance(){
+        int distance ;
 
+        if(ConfigLoader.distance < 0)
+            distance = 0;
+        if (ConfigLoader.distance > 10)
+            distance = 10;
+        else
+            distance = ConfigLoader.distance;
+        return distance;
     }
 
     /**
@@ -89,7 +100,7 @@ public class StackHandler {
                             if(flag) {
                                 for (int k = 0; k < chest.getSlots(); k++) {
                                     if (chest.getStackInSlot(k).isEmpty()) {
-                                        System.out.println("64!=======");
+                                        ;
                                         chest.insertItem(k, playerInv.getStackInSlot(i), false);
                                         playerInv.removeStackFromSlot(i);
                                         break;
@@ -100,7 +111,6 @@ public class StackHandler {
 
                         // 槽位未满一组
                         if (chest.getStackInSlot(j).getCount() != chest.getSlotLimit(j)) {
-                            System.out.println("进行堆叠");
                             int count1 = playerInv.getStackInSlot(i).getCount(); // 玩家物品数
                             int count2 = chest.getStackInSlot(j).getCount();  // 箱子物品数量
                             // 得到堆叠满一组后的剩余数

@@ -13,6 +13,7 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event){
         logger = event.getModLog();
+        new ConfigLoader(event);
         OpenInventoryEventHandler.getInstance();
         OpenChestEventHandler.getInstance();
     }
