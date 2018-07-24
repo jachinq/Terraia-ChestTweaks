@@ -1,7 +1,6 @@
 package com.jachin.terrariachesttweaks.handler;
 
 import com.google.common.collect.Lists;
-import com.jachin.terrariachesttweaks.bean.NullPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,6 @@ public class StackHandler {
 
     private static StackHandler instance;
     private EntityPlayerMP player;
-    private NullPlayer nullPlayer;
 
 
     private StackHandler(){}
